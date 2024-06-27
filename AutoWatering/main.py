@@ -66,7 +66,7 @@ def get_ukraine_time():
     rtc = RTC()
     current_time = rtc.datetime()
     
-    year, month, day, weekday, hours, minutes, seconds, subseconds = current_time
+    current_time = year, month, day, weekday, hours, minutes, seconds, subseconds 
     hours += 3
     
     if hours >= 24:
