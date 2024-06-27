@@ -58,7 +58,7 @@ def set_time():
         print(f'Идет подключение к: {server}...')
         ntptime.host = server
         ntptime.settime()  
-        print('Time set successfully')
+        print('Время получено')
         send_email(email_subject, "Установлено время с сервера NTP")
     
 
