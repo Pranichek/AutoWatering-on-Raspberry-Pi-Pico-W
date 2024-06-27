@@ -33,33 +33,33 @@ def send_email(subject, message):
     smtp.write(message)
     smtp.send()
     smtp.quit()
-    print("Письмо отправлено")
+    print("Повідомлення надіслано")
     
 
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
 wlan.connect(SSID, PASSWORD)
-print(f'Подключение к  {SSID}...')
+print(f'Підключенння к  {SSID}...')
 
 while not wlan.isconnected():
     time.sleep(1)
-    print('Ждите подключения')
+    print('Триває підключення')
     
 print('Connected to Wi-Fi')
 print(wlan.ifconfig())
-send_email(email_subject, "Установлено подключение с вай вай")
+send_email(email_subject, "Встановлено підключення із вай-фай")
 
 
 
 def set_time():
     ntp_servers = ['pool.ntp.org', 'time.nist.gov', 'time.google.com']
     for server in ntp_servers:
-        print(f'Идет подключение к: {server}...')
+        print(f'Підключення к: {server}...')
         ntptime.host = server
         ntptime.settime()  
-        print('Время получено')
-        send_email(email_subject, "Установлено время с сервера NTP")
+        print('Час отримано')
+        send_email(email_subject, "Час встановлено")
     
 
 def get_ukraine_time():
@@ -105,12 +105,12 @@ while True:
         print(sek, "секунд")
 
         if hour == 20 and minuty == 1 and sek == 1:
-            send_email(email_subject, f"Лампа включилась, время {hour}")
+            send_email(email_subject, f"Лампа ввімкнулась,час {hour}")
             relay_led = Pin(1, Pin.OUT)
         if hour == 4 and minuty == 1 and sek == 1:
             relay_led = Pin(1, Pin.OUT)   
         elif hour == 7 and minuty == 1 and sek == 1:
-            send_email(email_subject, f"Лампа выключилась, время {hour}")
+            send_email(email_subject, f"Лампа вимкнулась,час {hour}")
             relay_led = Pin(1, Pin.IN)
         elif hour == 10 and minuty == 1 and sek == 1:
             relay_led = Pin(1, Pin.IN)
@@ -118,7 +118,7 @@ while True:
         if wet >= 69:
             relay_pump = Pin(0, Pin.IN)
             if send_off_pump is None:
-                send_email(email_subject, f"Насос выключился, влажность {wet}")
+                send_email(email_subject, f"Насос вимкнувся, вологісті {wet}")
                 send_off_pump = 0
         elif minuty != 1:
             if wet <= 68:
@@ -128,11 +128,11 @@ while True:
                     send_off_pump = 0
                     if pump_start_time is None:
                         pump_start_time = time.time()
-                        send_email(email_subject, f"Насос проработал два раза и выключился, ждите пока пройдет час, чтобы насос мог поливать опять, влажность {wet}")
+                        send_email(email_subject, f"Насос вже проработав два рази, тому чекайте годину щоб вім міг поливати ще {wet}")
                 else:
                     print("зашло")
                     relay_pump = Pin(0, Pin.OUT)
-                    send_email(email_subject, f"Насос включился, влажность {wet}")
+                    send_email(email_subject, f"Насос ввімкнувся, вологість {wet}")
                     time.sleep(4)
                     send_off_pump = None
         if pump_start_time is not None:
@@ -149,14 +149,16 @@ while True:
             time.sleep(1)
             relay_led = Pin(1, Pin.IN)
             time.sleep(1)
+        wlan = network.WLAN(network.STA_IF)
+        wlan.active(True)
         wlan.connect(SSID, PASSWORD)
-        print(f'Подключение к  {SSID}...')
-
+        print(f'Підключенння к  {SSID}...')
+        
         while not wlan.isconnected():
             time.sleep(1)
-            print('Ждите подключения')
+            print('Триває підключення')
             
         print('Connected to Wi-Fi')
         print(wlan.ifconfig())
-        send_email(email_subject, "Установлено подключение с вай вай")
+        send_email(email_subject, "Встановлено підключення із вай-фай")
         set_time()
