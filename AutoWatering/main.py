@@ -33,7 +33,7 @@ def send_email(subject, message):
     smtp.write(message)
     smtp.send()
     smtp.quit()
-    print("Email sent successfully")
+    print("Письмо отправлено")
     
 
 
