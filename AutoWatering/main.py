@@ -55,7 +55,7 @@ send_email(email_subject, "Установлено подключение с ва
 def set_time():
     ntp_servers = ['pool.ntp.org', 'time.nist.gov', 'time.google.com']
     for server in ntp_servers:
-        print(f'Setting time from NTP server: {server}...')
+        print(f'Идет подключение к: {server}...')
         ntptime.host = server
         ntptime.settime()  
         print('Time set successfully')
