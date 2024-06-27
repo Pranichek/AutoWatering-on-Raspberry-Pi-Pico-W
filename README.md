@@ -23,8 +23,12 @@
 1) Перше, що вам потрібно зробити, це встановити [Thonny](https://thonny.org/).
 Коли ви перейдете за посиланням, ви побачите кнопку "Download version" для вибору версії, яка підтримується трьома операційними системами. Потім оберіть потрібну операційну систему та встановіть версію, яка підходить для вашого пристрою (сайт сам підкаже, яка краще).
 ![enter image description here](https://github.com/Pranichek/AutoWatering-on-Raspberry-Pi-Pico-W/blob/main/images/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202024-06-27%20111010.png?raw=true)
+
+
 2)Коли ви встановили Thonny, підключіть свій пристрій через micro USB. У верхній частині інтерфейсу ви побачите кнопку виконати(Run). Після натискання на неї відкриється вікно, де вам потрібно буде вибрати "Configure interpreter" та встановити версію MicroPython(Raspberry Pi Pico).
 ![enter image description here](https://github.com/Pranichek/AutoWatering-on-Raspberry-Pi-Pico-W/blob/main/images/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%20%D0%B0%D0%B1%D0%B7%D0%B0%D1%86%D0%B0%20%282%29.jpg?raw=true)
+
+
 3)Та остання деталь перед тим як ми почнемо працювати із кодом, це потрбіно буде вибрати у правому низу екрану install Micropython , та потім Raspberry Pi Pico W.
 ![enter image description here](https://github.com/Pranichek/AutoWatering-on-Raspberry-Pi-Pico-W/blob/main/images/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%20%D0%B0%D0%B1%D0%B7%D0%B0%D1%86%D0%B0%20%283%29.jpg?raw=true)
 ## Завантаження файлів на Raspberry Pi Pico W через Thonny
