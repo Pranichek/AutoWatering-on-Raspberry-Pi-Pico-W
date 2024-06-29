@@ -53,7 +53,7 @@ send_email(email_subject, "Встановлено підключення із в
 
 
 def set_time():
-    ntp_servers = ['pool.ntp.org', 'time.nist.gov', 'time.google.com']
+    ntp_servers = ['pool.ntp.org',  'time.google.com']
     for server in ntp_servers:
         print(f'Підключення к: {server}...')
         ntptime.host = server
